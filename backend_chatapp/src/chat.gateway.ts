@@ -1,4 +1,9 @@
-import { MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
+import {
+  MessageBody,
+  SubscribeMessage,
+  WebSocketGateway,
+  WebSocketServer,
+} from '@nestjs/websockets';
 
 // here thge websocket props should be passed by us
 
@@ -9,6 +14,6 @@ export class ChatGateway {
   @SubscribeMessage('message')
   handleMessage(@MessageBody() message: string): void {
     console.log(message);
-    this.server.emit('message', message)
+    this.server.emit('message', message);
   }
 }

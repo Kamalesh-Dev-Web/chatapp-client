@@ -1,37 +1,38 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import io, { Socket } from 'socket.io-client'
-import MessageInput from './MessageInput'
-import Messages from './Messages'
+import { useState, useEffect } from "react";
+import "./App.css";
+import io, { Socket } from "socket.io-client";
+import MessageInput from "./MessageInput";
+import Messages from "./Messages";
 
 function App() {
-
-  const [socket, setSocket] = useState<Socket>()
-  const [messages, setMessages] = useState<string[]>([])
+  const [socket, setSocket] = useState<Socket>();
+  const [messages, setMessages] = useState<string[]>([]);
 
   const send = (value: string) => {
-    socket?.emit('message', value)
-  }
+    socket?.emit("message", value);
+  };
 
   useEffect(() => {
-    const newSocket = io("http://localhost:8001")
-    setSocket(newSocket)
-  }, [setSocket])
+    const newSocket = io("http://localhost:8001");
+    setSocket(newSocket);
+  }, [setSocket]);
 
   const messageListener = (message: string) => {
-    setMessages([...messages, message])
-  }
+    setMessages([...messages, message]);
+  };
 
   useEffect(() => {
-    socket?.on('message', messageListener)
-    return () => { socket?.off('message', messageListener) }
-  }, [messageListener])
+    socket?.on("message", messageListener);
+    return () => {
+      socket?.off("message", messageListener);
+    };
+  }, [messageListener]);
   return (
     <>
-      <MessageInput send={send} />
       <Messages messages={messages} />
+      <MessageInput send={send} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
