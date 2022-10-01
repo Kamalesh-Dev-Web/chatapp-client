@@ -1,3 +1,5 @@
+# MSNGR
+
 Welcome to my chat app!
 
 This app was created by using react with vite and nestjs with websockets
