@@ -7,7 +7,7 @@ function Messages({ messages }: { messages: string[] }) {
   const date = current.toLocaleString();
 
   return (
-    <div>
+    <Grid sx={{ height: "91vh", overflow: "auto" }}>
       {messages.map((message, index) => (
         <Grid
           key={index}
@@ -33,7 +33,7 @@ function Messages({ messages }: { messages: string[] }) {
           </Box>
         </Grid>
       ))}
-    </div>
+    </Grid>
   );
 }
 
