@@ -3,6 +3,7 @@ import "./App.css";
 import io, { Socket } from "socket.io-client";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [socket, setSocket] = useState<Socket>();
@@ -29,6 +30,7 @@ function App() {
   }, [messageListener]);
   return (
     <>
+      <Navbar />
       <Messages messages={messages} />
       <MessageInput send={send} />
     </>

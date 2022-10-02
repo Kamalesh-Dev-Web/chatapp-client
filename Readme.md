@@ -8,4 +8,4 @@ Programming language used here is Typescript
 
 Work in Progress......
 
-![Screenshot](./fe_chatapp/screenshot.png)
+![Screenshot](./fe_chatapp/screenshot.jpeg)
